@@ -34,11 +34,38 @@ angular.module("ContactListApp", [])
 
 })
 
+// .controller('SearchCntCtrl', function($scope){
+
+// 	$scope.isDefault = true;
+// 	$scope.isTyping = true;
+
+// 	// function startTyping() {
+// 	// 	$scope.isTyping= true;
+// 	// 	$scope.isDefault = true;
+// 	// }
+
+// })
+
 .directive ('myContact', function() {
+	function link() {
+	}
+	
+	function controller() {
+		init();
+	}
+
 	return {
 		restrict: 'E',
-		template: "<div class='col-md-2' ng-repeat='contact in contacts'><h4>{{contact.firstName}}</h4><h4>{{contact.lastName}}</h4><h4>{{contact.cellNum}}</h4></div>"
-		// templateUrl: 'contact_card.html'
+		template: "<div class='col-md-2 contactCard' ng-repeat='contact in contacts | filter:searchBox'><h4>{{contact.firstName}}</h4><h4>{{contact.lastName}}</h4><h4>{{contact.cellNum}}</h4></div>",
+		scope: {
+			contacts: '='
+		},
+		controller: controller,
+		link: link
+		// scope: {
+		// 	contacts: '='
+		// }
+		// // templateUrl: 'contact_card.html'
 	};
 })
 
@@ -56,7 +83,22 @@ var contactListArr = [
 	cellNum:"(123)-223-2234"
 	},
 	{
-	firstName:"ben",
+	firstName:"sara",
+	lastName:"randy",
+	cellNum:"(123)-223-2234"
+	},
+	{
+	firstName:"sam",
+	lastName:"randy",
+	cellNum:"(123)-223-2234"
+	},
+	{
+	firstName:"zach",
+	lastName:"randy",
+	cellNum:"(123)-223-2234"
+	},
+	{
+	firstName:"pat",
 	lastName:"randy",
 	cellNum:"(123)-223-2234"
 	},
@@ -66,37 +108,22 @@ var contactListArr = [
 	cellNum:"(123)-223-2234"
 	},
 	{
-	firstName:"ben",
-	lastName:"randy",
+	firstName:"phil",
+	lastName:"johnson",
 	cellNum:"(123)-223-2234"
 	},
 	{
 	firstName:"ben",
-	lastName:"randy",
+	lastName:"johnson",
 	cellNum:"(123)-223-2234"
 	},
 	{
 	firstName:"ben",
-	lastName:"randy",
+	lastName:"johnson",
 	cellNum:"(123)-223-2234"
 	},
 	{
-	firstName:"ben",
-	lastName:"randy",
-	cellNum:"(123)-223-2234"
-	},
-	{
-	firstName:"ben",
-	lastName:"randy",
-	cellNum:"(123)-223-2234"
-	},
-	{
-	firstName:"ben",
-	lastName:"randy",
-	cellNum:"(123)-223-2234"
-	},
-	{
-	firstName:"ben",
+	firstName:"chris",
 	lastName:"randy",
 	cellNum:"(123)-223-2234"
 	},									

@@ -10,21 +10,21 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
-<body ng-app="ContactListApp" ng-controller="AddCntCtrl">
+<body ng-app="ContactListApp">
 	<div class="container-fuild top">
 		<div class="row">
 
-			<div class="col-md-6">
+			<div ng-controller="AddCntCtrl" class="col-md-6">
 				<h2>Add Contact</h2>
-				<form class="form-group" ng-submit="addContact(newcont)">
+				<form class="form-group" ng-submit="saveContact()">
 					<div class="form-group">
-						<input type="text" ng-model="newcont.firstName"id="firstName" class="form-control" placeholder="First Name" autofocus="">
+						<input type="text" ng-model="newcont.firstName" class="form-control" placeholder="First Name" autofocus="">
 					</div>
 					<div class="form-group">
-						<input type="text" ng-model="newcont.lastName" id="lastName" class="form-control" placeholder="Last Name">
+						<input type="text" ng-model="newcont.lastName" class="form-control" placeholder="Last Name">
 					</div>
 					<div class="form-group">
-						<input type="tel" ng-model="newcont.cellNum" id="cell" class="form-control" placeholder="Cell Number">
+						<input type="tel" ng-model="newcont.cellNum" class="form-control" placeholder="Cell Number">
 					</div>
 					<div class="form-group">
 						<input type="submit" value="Submit"></input>
@@ -34,11 +34,11 @@
 				</div>
 			</div>	
 
-			<div class="col-md-6">
+			<div ng-controller="SearchCtrl" class="col-md-6">
 				<h2>Search Contact List</h2>
 				<form class="form-group">
 					<div class="form-group">
-						<input type="text" id="s-firstName" class="form-control" placeholder="First Name" ng-model="searchBox">
+						<input type="text" id="s-firstName" class="form-control" placeholder="First Name" ng-model="query">
 					</div>
 			<!-- 		<div class="form-group">
 						<input type="text" id="s-lastName" class="form-control" placeholder="Last Name" >
@@ -54,22 +54,9 @@
 		</div>	
 
 		<div class="container-fuild">
-			<div class="row">
+			<div class="row">	
 				<div ng-controller="ListCtrl">
-					<!-- Entering New Contact -->	
-					<div class="col-md-2 contactCard" >
-						<h4>{{newcont.firstName}}</h4>
-						<h4>{{newcont.lastName}}</h4>
-						<h4>{{newcont.cell}}</h4>
-					</div>	
-					<!-- New Contact -->
-					<div class="col-md-2 contactCard" >
-						<h4>New Contact</h4>
-						
-					</div>	
-
-					<my-contact ></my-contact>
-
+					<my-contact dataset="contacts"></my-contact>
 				</div>
 			</div>
 		</div>
@@ -81,6 +68,6 @@
 	</script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/main-new.js"></script>
 </body>
 </html>
