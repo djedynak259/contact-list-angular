@@ -1,4 +1,4 @@
-	<div class="col-md-2" ng-repeat="contact in contacts">
+	<div class="col-md-2 contactCard" ng-repeat="contact in dataset | filter:query.searchQuery">
 		<h4>{{contact.firstName}}</h4>
 		<h4>{{contact.lastName}}</h4>
 		<h4>{{contact.cellNum}}</h4>
