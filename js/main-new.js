@@ -27,7 +27,7 @@ angular.module("ContactListApp", [])
 
 .controller('ListCtrl', function($scope, ContactsDataset) {
 	$scope.contacts = ContactsDataset;
-})
+})	
 
 .controller('SearchCtrl', function($scope, ContactsUtil) {
 	//ContactsUtil.searchQuery = $scope.query;
@@ -37,8 +37,7 @@ angular.module("ContactListApp", [])
 })
 
 .controller('AddCntCtrl', function($scope, ContactsUtil){
-	$scope.newcont = {};
-
+	
 	$scope.saveContact = function() {
 		ContactsUtil.addContact($scope.newcont);
 		$scope.newcont = {};
