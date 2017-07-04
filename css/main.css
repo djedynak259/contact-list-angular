@@ -1,3 +1,7 @@
+body {
+	background: url(../img/wood.jpg) no-repeat center center;
+}
+
 .top {
    	height: 100vh;
    	text-align: center;
